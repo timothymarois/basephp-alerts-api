@@ -6,8 +6,7 @@ An API built on BasePHP framework to store and manage alerts.
 - [BasePHP Alerts SDK](https://github.com/timothymarois/basephp-alerts-sdk)
 
 
-## API (ALERTS)
-
+## Alert (Endpoints)
 
 ```
 // getting all alerts
@@ -34,7 +33,7 @@ POST /v1/alerts/delete/{handle}
 |`description`     | Description of alert    |
 
 
-## API (ALERT ACTIVITY)
+## Activity (Endpoints)
 
 ```
 // get all alert activity
