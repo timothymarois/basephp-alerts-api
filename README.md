@@ -2,3 +2,5 @@
 
 # BasePHP Alerts (API)
 An API built on BasePHP framework to store and manage alerts.
+
+- [BasePHP Alerts SDK](https://github.com/timothymarois/basephp-alerts-sdk)
