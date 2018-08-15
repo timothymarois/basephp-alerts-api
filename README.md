@@ -26,7 +26,7 @@ GET /v1/alerts/{handle}
 
 
 
-**Add New Alert:**
+**Add Alert:**
 
 ```
 POST /v1/alerts
@@ -57,3 +57,76 @@ POST /v1/alerts/{handle}
 |---	           |---                      |
 |`handle`          | Unique Alert Identifier |
 |`description`     | Description of alert    |
+
+
+
+
+
+
+## API (ALERT ACTIVITY)
+Using the following endpoints for `Activity` using the `BaseActivity` database table.
+
+
+**Get All Activity:**
+
+The `handle` is a reference to your specific Alert Handle.
+
+```
+GET /v1/activity/{handle}
+```
+
+
+
+**Get Alert:**
+
+Using the `id` of the specific activity record.
+
+```
+GET /v1/activity/{id}
+```
+
+
+
+**Add Activity Record:**
+
+The `handle` is a reference to your specific Alert Handle.
+
+```
+POST /v1/activity/{handle}
+```
+
+|Parameters        |Description              |
+|---	           |---                      |
+|`type`            | `WARN`, `CRITICAL`, `NOTICE` |
+|`group`           | Group this activity with a label    |
+|`message`         | Description of this activity  |
+|`level`           | `LOW`, `URGENT`         |
+
+
+**Delete a Activity Record:**
+
+Using the `id` of the specific activity record.
+
+```
+POST /v1/activity/delete/{id}
+```
+
+
+
+**Dismiss Activity Record:**
+
+Using the `id` of the specific activity record. Dismissing only a single record.
+
+```
+POST /v1/activity/dismiss/{id}
+```
+
+
+
+**Dismiss All Activity Records:**
+
+The `handle` is a reference to your specific Alert Handle. This will dismiss ALL records on this alert.
+
+```
+POST /v1/activity/dismiss/{handle}
+```
