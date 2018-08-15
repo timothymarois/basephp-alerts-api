@@ -31,7 +31,7 @@ class Alerts extends Controller
 	}
 
 
-    public function add()
+	public function add()
 	{
 		$handle = $this->request->post('handle');
 		$description = $this->request->post('description','');
@@ -56,7 +56,7 @@ class Alerts extends Controller
 	}
 
 
-    public function edit($oldHandle)
+	public function edit($oldHandle)
 	{
 		$handle = $this->request->post('handle');
 		$description = $this->request->post('description');
@@ -91,7 +91,7 @@ class Alerts extends Controller
 	}
 
 
-    public function delete($handle)
+	public function delete($handle)
 	{
 		$handle = $this->request->post('handle');
 
@@ -102,9 +102,9 @@ class Alerts extends Controller
 		if ($alert) {
 
 			config()->set('api', [
-    			'error' => 'true',
-    			'message' => 'Failed to delete alert'
-    		]);
+				'error' => 'true',
+				'message' => 'Failed to delete alert'
+			]);
 
 			return $alert;
 		}

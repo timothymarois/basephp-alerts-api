@@ -12,7 +12,7 @@ class Error extends Controller
 			'message' => 'This path does not exist.'
 		]);
 
-        return [];
+		return [];
 	}
 
 }

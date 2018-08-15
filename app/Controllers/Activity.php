@@ -21,10 +21,10 @@ class Activity extends Controller
 
 	public function list($handle)
 	{
-        $dismissed = $this->request->get('dismissed',0);
+		$dismissed = $this->request->get('dismissed',0);
 
-        $alert = AlertModel::getByHandle($handle);
-        if (!$alert) return;
+		$alert = AlertModel::getByHandle($handle);
+		if (!$alert) return;
 
 		$records = ActivityModel::getAll($alert->id, $dismissed);
 
@@ -36,27 +36,27 @@ class Activity extends Controller
 	}
 
 
-    public function add($handle)
+	public function add($handle)
 	{
 		$type    = strtoupper($this->request->post('type'));
-        $level   = strtoupper($this->request->post('level','LOW'));
+		$level   = strtoupper($this->request->post('level','LOW'));
 		$group   = strtoupper($this->request->post('group','DEFAULT'));
 		$message = $this->request->post('message','');
 
-        $alert = AlertModel::getByHandle($handle);
-        if (!$alert)
-        {
-            config()->set('api', [
-    			'error' => 'true',
-    			'message' => 'Failed to create activity. Missing Alert.'
-    		]);
-        }
+		$alert = AlertModel::getByHandle($handle);
+		if (!$alert)
+		{
+			config()->set('api', [
+				'error' => 'true',
+				'message' => 'Failed to create activity. Missing Alert.'
+			]);
+		}
 
 		$recordId = ActivityModel::insert($alert->id, [
 			'type' => $type,
 			'level' => $level,
 			'group' => $group,
-            'message' => $message
+			'message' => $message
 		]);
 
 		if ($recordId) {
@@ -72,13 +72,13 @@ class Activity extends Controller
 	}
 
 
-    public function dismiss($id)
+	public function dismiss($id)
 	{
-        $record = ActivityModel::get($id);
+		$record = ActivityModel::get($id);
 
 		if ($record) {
 
-            ActivityModel::dismiss($id, 1);
+			ActivityModel::dismiss($id, 1);
 
 			return ActivityModel::get($id);
 		}
@@ -92,29 +92,29 @@ class Activity extends Controller
 	}
 
 
-    public function dismissAll($handle)
+	public function dismissAll($handle)
 	{
-        $alert = AlertModel::getByHandle($handle);
-        if (!$alert) {
-            config()->set('api', [
-    			'error' => 'true',
-    			'message' => 'Failed to dismiss activity. Missing Alert.'
-    		]);
-        }
+		$alert = AlertModel::getByHandle($handle);
+		if (!$alert) {
+			config()->set('api', [
+				'error' => 'true',
+				'message' => 'Failed to dismiss activity. Missing Alert.'
+			]);
+		}
 
-        ActivityModel::dismissAll($alert->id);
+		ActivityModel::dismissAll($alert->id);
 
 		$records = ActivityModel::getAll($alert->id, 0);
 
 		if ($records) {
-			return $records;
+		return $records;
 		}
 
 		return;
 	}
 
 
-    public function delete($id)
+	public function delete($id)
 	{
 		ActivityModel::delete($id);
 
@@ -122,10 +122,10 @@ class Activity extends Controller
 
 		if ($record) {
 
-            config()->set('api', [
-    			'error' => 'true',
-    			'message' => 'Failed to delete activity'
-    		]);
+			config()->set('api', [
+				'error' => 'true',
+				'message' => 'Failed to delete activity'
+			]);
 
 			return $record;
 		}
