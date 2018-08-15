@@ -7,51 +7,26 @@ An API built on BasePHP framework to store and manage alerts.
 
 
 ## API (ALERTS)
-Using the following endpoints for `Alerts` using the `BaseAlert` database table.
 
-
-**Get All Alerts:**
 
 ```
+// getting all alerts
 GET /v1/alerts
-```
 
-
-
-**Get Alert:**
-
-```
+// getting a single alert
 GET /v1/alerts/{handle}
-```
 
-
-
-**Add Alert:**
-
-```
+// add a new alert (requires params)
 POST /v1/alerts
-```
 
-|Parameters        |Description              |
-|---	           |---                      |
-|`handle`          | Unique Alert Identifier |
-|`description`     | Description of alert    |
+// edit an existing alert (requires params)
+POST /v1/alerts/{handle}
 
-
-
-**Delete Alert:**
-
-```
+// delete an alert
 POST /v1/alerts/delete/{handle}
 ```
 
-
-
-**Edit Existing Alert:**
-
-```
-POST /v1/alerts/{handle}
-```
+**Alert Parameters**
 
 |Parameters        |Description              |
 |---	           |---                      |
@@ -59,41 +34,29 @@ POST /v1/alerts/{handle}
 |`description`     | Description of alert    |
 
 
-
-
-
-
 ## API (ALERT ACTIVITY)
-Using the following endpoints for `Activity` using the `BaseActivity` database table.
-
-
-**Get All Activity:**
-
-The `handle` is a reference to your specific Alert Handle.
 
 ```
+// get all alert activity
 GET /v1/activity/{handle}
-```
 
-
-
-**Get Alert:**
-
-Using the `id` of the specific activity record.
-
-```
+// get a single activity record
 GET /v1/activity/{id}
-```
 
-
-
-**Add Activity Record:**
-
-The `handle` is a reference to your specific Alert Handle.
-
-```
+// add a new activity record (requires params)
 POST /v1/activity/{handle}
+
+// delete a activity record
+POST /v1/activity/delete/{id}
+
+// dismiss an activity record
+POST /v1/activity/dismiss/{id}
+
+// dismiss all activity records on alert
+POST /v1/activity/dismiss/{handle}
 ```
+
+**Activity Parameters**
 
 |Parameters        |Description              |
 |---	           |---                      |
@@ -101,32 +64,3 @@ POST /v1/activity/{handle}
 |`group`           | Group this activity with a label    |
 |`message`         | Description of this activity  |
 |`level`           | `LOW`, `URGENT`         |
-
-
-**Delete a Activity Record:**
-
-Using the `id` of the specific activity record.
-
-```
-POST /v1/activity/delete/{id}
-```
-
-
-
-**Dismiss Activity Record:**
-
-Using the `id` of the specific activity record. Dismissing only a single record.
-
-```
-POST /v1/activity/dismiss/{id}
-```
-
-
-
-**Dismiss All Activity Records:**
-
-The `handle` is a reference to your specific Alert Handle. This will dismiss ALL records on this alert.
-
-```
-POST /v1/activity/dismiss/{handle}
-```
