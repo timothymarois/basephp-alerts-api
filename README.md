@@ -1,5 +1,3 @@
-> **Note:** This repository requires the use of the BasePHP framework. If you would like to learn more about the framework, visit [BasePHP](https://github.com/basephp/framework).
-
 # BasePHP Alerts (API)
 An API built on BasePHP framework to store and manage alerts.
 
@@ -57,9 +55,15 @@ POST /v1/activity/dismiss/{handle}
 
 **Activity Parameters**
 
+|Parameters        |Description                          |
+|---	           |---                                  |
+|`type`            | `WARN`, `CRITICAL`, `UPDATE`        |
+|`group`           | Group this activity with a label    |
+|`message`         | Description of this activity        |
+|`level`           | `NONE`, `LOW`, `URGENT`             |
+
+**Activity Filter**
+
 |Parameters        |Description              |
 |---	           |---                      |
-|`type`            | `WARN`, `CRITICAL`, `NOTICE` |
-|`group`           | Group this activity with a label    |
-|`message`         | Description of this activity  |
-|`level`           | `LOW`, `URGENT`         |
+|`dismissed`       | `0` or `1`              |
