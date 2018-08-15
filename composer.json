@@ -1,0 +1,14 @@
+{
+    "require": {
+        "basephp/framework": "dev-master",
+        "basephp/database": "dev-master"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+
+    "optimize-autoloader": true
+}
