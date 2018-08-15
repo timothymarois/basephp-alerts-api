@@ -1,7 +1,20 @@
 # BasePHP Alerts (API)
-An API built on BasePHP framework to store and manage alerts.
+An API built on BasePHP framework to store and manage alert activity.
 
 - [BasePHP Alerts SDK](https://github.com/timothymarois/basephp-alerts-sdk)
+
+
+## Results
+
+```JSON
+{
+  "errors": "false",
+  "message": "",
+  "runtime": "0.0109",
+  "version": "v1",
+  "results": []
+}
+```
 
 
 ## Alert (Endpoints)
